@@ -1,5 +1,5 @@
 const express = require('express');
-const meme = require('./meme');
+const currency = require('./currency');
 const app = express();
 
 app.get('/', function(req, res){
@@ -10,7 +10,8 @@ app.listen(5000, function (){
     console.log('listening at 5000');
 });
 
-app.use('/deeznuts', meme.deeznuts);
-app.use('/21', meme.wutsnineplusten);
+//<url>/currency?yen=<numeric value>
+//<url>/currency?us=<numeric value>
+app.use('/currency', currency.convert);
 
 module.exports = app;
